@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Library Management System</title>
+    <style>
+
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .header {
+            padding: 5px;
+            text-align: center;
+            color: black;
+            font-size: 30px;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <div class="header">
+        <h1>Summary of Books</h1>
+    </div>
+    <table id="customers" border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${listOfBooks}">
+            <td th:text="${book.title}">Title</td>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

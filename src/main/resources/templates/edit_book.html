@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Book<</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/books.css}" />
+</head>
+<body>
+<div align="center">
+    <div class="header">
+        <h1>Update Book</h1>
+    </div>
+    <form action="#" th:action="@{/update/{id}(id=${book.id})}" th:object="${book}" method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Book Id:</td>
+                <td><input type="text" th:field="*{id}" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td>Book Title:</td>
+                <td><input type="text" id="title" th:field="*{title}" placeholder="Enter Title.."/></td>
+            </tr>
+            <tr>
+                <td>Book Author:</td>
+                <td><input type="text" th:field="*{author}" placeholder="Enter Author.."/></td>
+            </tr>
+            <tr>
+                <td>Book Publisher:</td>
+                <td><input type="text" th:field="*{publisher}" placeholder="Enter Publisher.."/></td>
+            </tr>
+            <tr>
+                <td>Book Publication Date:</td>
+                <td><input type="text" th:field="*{publishedDate}" placeholder="Enter Publication Date.."/></td>
+            </tr>
+            <tr>
+                <td>Book Genre:</td>
+                <td><input type="text" th:field="*{genre}" placeholder="Enter Genre.."/></td>
+            </tr>
+            <tr>
+                <td>Book Description:</td>
+                <td><input type="text" th:field="*{description}" placeholder="Enter Description.."/></td>
+            </tr>
+            <tr>
+                <td>Number of Pages:</td>
+                <td><input type="text" th:field="*{noOfPages}" placeholder="Enter Number of Pages.."/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update Book"></td>
+                <td><input type="reset" value="Clear"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Library Management System</title>
+    <link th:href="@{css/books.css}" rel="stylesheet"/>
+</head>
+<body>
+<div align="center">
+    <div class="header">
+        <h1>List of Available Users in the System</h1>
+    </div>
+    <table id="books" border="1" cellpadding="10">
+        <br/><br/>
+        <a href="books" class="button" id="view_button" style="float: left;">View Books</a>
+        <br/><br/>
+        <br/><br/>
+        <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Edit Book</th>
+            <th>Delete Book</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${listOfUsers}">
+            <td th:text="${user.id}">User Id</td>
+            <td th:text="${user.name}">Name</td>
+            <td th:text="${user.email}">Email</td>
+            <td th:text="${user.password}">Password</td>
+            <td>
+                <a th:href="@{'/edituser/' + ${user.id}}" class="button">Edit User</a>
+            </td>
+            <td>
+                <a th:href="@{'/deleteuser/' + ${user.id}}" class="button">Delete User</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

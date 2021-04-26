@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Library Management System</title>
+    <link th:href="@{css/books.css}" rel="stylesheet"/>
+</head>
+<body>
+<div align="center">
+    <div class="header">
+        <h1>List of Available Books in the System</h1>
+    </div>
+    <table id="books" border="1" cellpadding="10">
+        <br/><br/>
+        <a href="new" class="button" id="add_button" style="float: left;">Add New Book</a>
+        <a href="users" class="button" id="view_button">View Users</a>
+        <br/><br/>
+        <br/><br/>
+        <thead>
+            <tr>
+                <th>Book Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Publication Date</th>
+                <th>Genre</th>
+                <th>Description</th>
+                <th>Number of Pages</th>
+                <th>Edit Book</th>
+                <th>Delete Book</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${listOfBooks}">
+                <td th:text="${book.id}">Book Id</td>
+                <td th:text="${book.title}">Title</td>
+                <td th:text="${book.author}">Author</td>
+                <td th:text="${book.publisher}">Publisher</td>
+                <td th:text="${book.publishedDate}">Publication Date</td>
+                <td th:text="${book.genre}">Genre</td>
+                <td th:text="${book.description}">Description</td>
+                <td th:text="${book.noOfPages}">Number of Pages</td>
+                <td>
+                    <a th:href="@{'/edit/' + ${book.id}}" class="button">Edit Book</a>
+                </td>
+                <td>
+                    <a th:href="@{'/delete/' + ${book.id}}" class="button">Delete Book</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
