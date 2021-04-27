@@ -115,5 +115,11 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
+        <distributionManagement>
+        	<snapshotRepository>
+            		<id>snapshots</id>
+            		<name>artifactory-snapshots</name>
+            		<url>http://34.204.187.40:8082/artifactory/piperline-libs-snapshot-local</url>
+        	</snapshotRepository>
+    	</distributionManagement>
 </project>
